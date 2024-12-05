@@ -39,7 +39,7 @@ const App = () => {
 
   return (
     <div className="bg-slate-800 lg:w-1/2 w-4/5 h-fit rounded-xl m-10 flex flex-col lg:block items-start  p-5 text-2xl mx-auto">
-      <h1 className="text-white text-2xl text-center mb-5">
+      <h1 className="text-white text-2xl font-bold text-center mb-5">
         Password Generator
       </h1>
       <div className="flex  rounded-lg  overflow-hidden mb-10 md:text-3xl">
@@ -95,13 +95,17 @@ const App = () => {
       </label>
       {showCopiedMessage && (
         <p
-          className={`fixed bottom-5 left-0 right-0 text-center text-white text-wrap w-fit bg-green-500 px-4 py-2 mx-auto w-max rounded-md duration-1000 ease-in transition-opacity ${
+          className={`fixed bottom-5 left-0 right-0 text-center text-white  break-words w-full  bg-green-500 px-4 py-2 mx-auto rounded-md duration-1000 ease-in transition-opacity ${
             showCopiedMessage ? "opacity-100" : "opacity-0"
           }`}
         >
           Copied to Clipboard {pass}
         </p>
       )}
+
+      <p className="fixed text-base bottom-2 left-0 right-0 text-white text-center ">
+        Created by <a href="https://github.com/L4TIF">L4TIF</a>
+      </p>
     </div>
   );
 };
