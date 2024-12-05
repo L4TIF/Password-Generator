@@ -38,11 +38,11 @@ const App = () => {
   }, [pass, passlength]);
 
   return (
-    <div className="bg-slate-800 w-1/2 h-fit rounded-xl m-10 p-5 text-2xl mx-auto">
+    <div className="bg-slate-800 lg:w-1/2 w-4/5 h-fit rounded-xl m-10 flex flex-col lg:block items-start  p-5 text-2xl mx-auto">
       <h1 className="text-white text-2xl text-center mb-5">
         Password Generator
       </h1>
-      <div className="flex rounded-lg  overflow-hidden mb-10 text-3xl">
+      <div className="flex  rounded-lg  overflow-hidden mb-10 md:text-3xl">
         <input
           className="py-1 px-3 w-full"
           placeholder="Password"
@@ -53,7 +53,7 @@ const App = () => {
         />
         <button
           onClick={copyToClickboard}
-          className="copy bg-blue-500 text-white px-3  py-2"
+          className="copy bg-blue-700 text-white px-3  py-2 hover:bg-blue-500 flex items-center justify-center font-bold pb-4"
         >
           copy
         </button>
@@ -66,35 +66,36 @@ const App = () => {
         defaultValue={8}
         min={6}
         max={20}
-        className="mr-5"
+        className="mr-5 w-full lg:w-fit"
       />
       <label htmlFor="passlength" className="text-orange-400 mr-4">
         Length: {passlength}
       </label>
 
-      <input
-        onChange={() => setnumAllowed((allowed) => !allowed)}
-        className=" mr-2"
-        type="checkbox"
-        name="numAllowed"
-        id="numAllowed"
-      />
       <label className="text-orange-400 mr-4" htmlFor="numAllowed">
+        <input
+          onChange={() => setnumAllowed((allowed) => !allowed)}
+          className=" mr-2"
+          type="checkbox"
+          name="numAllowed"
+          id="numAllowed"
+        />
         Numbers
       </label>
-      <input
-        onChange={() => setsCharAllowed((allowed) => !allowed)}
-        className=" mr-2"
-        type="checkbox"
-        name="sCharAllowed"
-        id="sCharAllowed"
-      />
+
       <label className="text-orange-400 mr-4" htmlFor="sCharAllowed">
+        <input
+          onChange={() => setsCharAllowed((allowed) => !allowed)}
+          className=" mr-2"
+          type="checkbox"
+          name="sCharAllowed"
+          id="sCharAllowed"
+        />
         Special Character
       </label>
       {showCopiedMessage && (
         <p
-          className={`fixed bottom-5 left-0 right-0 text-center text-white bg-green-500 px-4 py-2 mx-auto w-max rounded-md duration-1000 ease-in transition-opacity ${
+          className={`fixed bottom-5 left-0 right-0 text-center text-white text-wrap w-fit bg-green-500 px-4 py-2 mx-auto w-max rounded-md duration-1000 ease-in transition-opacity ${
             showCopiedMessage ? "opacity-100" : "opacity-0"
           }`}
         >
